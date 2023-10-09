@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Maksym Sovyk</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/ico3.ico">
+  </head>
+
+  <body>
+    
+    <header class="header">
+      <a href="#" class="logo">Portfolio</a>
+
+      <i class="bx bx-menu" id="menu-icon"></i>
+
+      <nav class="navbar">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="home" id="home">
+      <div class="home-content">
+        <h3>Hello, it's Me</h3>
+        <h1>Maksym Sovyk</h1>
+        <h3>And I'm a <span>Front-End Developer</span></h3>
+        <p>
+          I am dedicated to crafting beautiful and user-friendly web experiences. With a keen eye for design and a knack for
+          turning ideas into interactive websites, I'm here to bring your digital visions to life.
+        </p>
+        <div class="social-media">
+          <a href="https://www.facebook.com/profile.php?id=100094686289880"><i class="bx bxl-facebook"></i></a>
+          <a href="https://twitter.com/MaksymSovyk22"><i class="bx bxl-twitter"></i></a>
+          <a href="https://www.instagram.com/777_sovuk.maksum/"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="https://www.linkedin.com/in/maksym-sovyk-286762284/"><i class="bx bxl-linkedin"></i></a>
+        </div>
+        <a href="resume.pdf" download="resume.pdf" class="btn">Download Resume</a>
+      </div>
+
+      <div class="home-img">
+        <img src="images/darkline.png" alt="" class="src">
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div class="about-img">
+        <img src="images/NewProject (3).png" alt="">
+      </div>
+
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3>Front-End developer</h3>
+        <p>
+            Student at Conestoga College. Program (It innovation and design). Graduated from high school in 2023. I started studying
+            web development in 2022, before that I studied gamedev (c++, c#, Unity). I like to learn a lot of new things and quickly
+            integrate into the team. I hope I can help your company to make projects faster and better.
+        </p>
+        <p class="about__text about__hidden">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores impedit voluptatibus qui repudiandae,
+          exercitationem voluptatum possimus dolore dolores tempora ex neque aperiam libero blanditiis labore vitae,
+          corporis ipsum cum deleniti. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas sapiente accusamus 
+          ex dolores assumenda aut beatae sed, quae, ad culpanumquam vitae.
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores impedit voluptatibus qui repudiandae,
+          exercitationem voluptatum possimus dolore dolores tempora ex neque aperiam libero blanditiis labore vitae,
+          corporis ipsum cum deleniti. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas sapiente accusamus
+          ex dolores assumenda aut beatae sed, quae, ad culpanumquam vitae.
+        </p>
+        <button class="btn" id="btn__read-more">Read more</button>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <h2 class="heading">My <span>Profesional</span> Skills:</h2>
+
+      <div class="services-container">
+          <div class="services-box">
+            <i class="bx bx-code-alt"></i>
+            <h3>Front-End Development</h3>
+            <p>
+              HTML(BEM methodology),
+              CSS,
+              CSS Preprocessors (Sass, Less),
+              JavaScript(Promises , OOP , Timers...),
+              Advanced DOM and Events,
+              typescript(Generics , Enums...),
+              react(Virtual DOM , hoocs...).
+            </p>
+            <a href="front-end.html" target="_blank" class="btn">Read more</a>
+          </div>
+
+        <div class="services-box">
+          <i class='bx bx-server'></i>
+          <h3>Back-End Development</h3>
+          <p>
+            General knowledge of Node Js and Nest Js, a good understanding of how HTTP and HTTPS protocols work.
+            Service Worker API. General knowledge of C#. Understanding how DNS and URL address works. Uploading websites to hosting
+          </p>
+          <a href="back-end.html" class="btn">Read more</a>
+        </div>
+
+        <div class="services-box">
+          <i class='bx bxl-dev-to'></i>
+          <h3>Useful Dev Tools</h3>
+          <p>
+            Work with Git in a team. Working with Github. Web hosting: netlify, 000webhost... Website layout using figma, avocode.
+            Image processing using photoshop. Redux, Redux-Thunk, Redux toolkit. Working with Wordpress and more.
+          </p>
+          <a href="useful-tools.html" class="btn">Read more</a>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h2 class="heading">Portfolio <span>Projects</span></h2>
+
+      <div class="portfolio-container">
+
+        <div class="portfolio-box">
+          <img src="images/portfolio10.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Front-end</h4>
+            <p>
+              Development of an adaptive website with animations.
+              Development using html, css, scss, javaScript, DOM, node.js.
+            </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU" id="github__link" target="_blank"><i class='bx bxl-github' id="github"></i></a>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="images/portfolio20.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Full Stack</h4>
+            <p>
+              Development of an adaptive website with animations.
+              Development using html, css, scss, javaScript, react, node.js.
+            </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU" target="_blank" id="github__link"><i class='bx bxl-github' id="github"></i></a>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="portfolio-box">
+          <img src="images/portfolio30.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Front-end</h4>
+            <p>
+              Development of an adaptive website with animations.
+              Development using html, css, scss, javaScript, DOM, node.js.
+            </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU" id="github__link" target="_blank"><i class='bx bxl-github' id="github"></i></a>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="portfolio-box">
+          <img src="images/portfolio40.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Front-end</h4>
+            <p>
+                Development of an adaptive website with animations.
+                Development using html, css, scss, javaScript, DOM, node.js.
+            </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU" target="_blank" id="github__link"><i class='bx bxl-github' id="github"></i></a>
+              <a href="#"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+
+      <div class="portfolio-box">
+        <img src="images/stelestreem.png" alt="">
+        <div class="portfolio-layer">
+          <h4>Front-end</h4>
+          <p>
+            Development of an adaptive website with animations.
+            Development using html, css, scss, javaScript, DOM, node.js.
+          </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU/Stylestreem" target="_blank" id="github__link"><i class='bx bxl-github' id="github"></i></a>
+              <a href="https://astonishing-croquembouche-779807.netlify.app"><i class="bx bx-link-external"></i></a>
+            </div>
+        </div>
+      </div>
+
+        <div class="portfolio-box">
+          <img src="images/telegram.png" alt="">
+          <div class="portfolio-layer">
+            <h4>Backend development</h4>
+            <p>
+              Telegram bot for for interview, 
+              tools: javaScript, Node.js, 
+              libraries: "grammy" ,"random-js"
+            </p>
+            <div class="portfolio-btns">
+              <a href="https://github.com/HulumyluU/Telegram__bot" target="_blank" id="github__link"><i class='bx bxl-github' id="github"></i></a>
+              <a href="https://t.me/GufiFrontendBot"><i class="bx bx-link-external"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="portfolio-more-projects">
+        <h2>Find more project on my github account : 
+          <span><a href="https://github.com/HulumyluU" target="_blank"> Find more projects</a></span>
+        </h2>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2 class="heading">Contact <span>Me!</span></h2>
+
+      <form action="#">
+        <div class="input-box">
+          <input type="text" placeholder="Full Name">
+          <input type="email" placeholder="Email Address">
+        </div>
+        <div class="input-box">
+          <input type="number" placeholder="Mobile Number">
+          <input type="text" placeholder="Email Subject">
+        </div>
+        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send Message" class="btn">
+      </form>
+      <div class="social-media contact__social-media">
+        <a href="https://www.facebook.com/profile.php?id=100094686289880"><i class="bx bxl-facebook"></i></a>
+        <a href="https://twitter.com/MaksymSovyk22"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/maksym-sovyk-286762284/"><i class="bx bxl-linkedin"></i></a>
+        <a href="mailto:ms3713287@gmail.com"><i class='bx bxl-gmail'></i></a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-text">
+        <p>Copyright &copy; 2023 by Maksym Sovyk | All Rights Reserved.</p>
+      </div>
+
+      <div class="footer-icon-top">
+        <a href="#home"><i class="bx bx-up-arrow-alt"></i></a>
+      </div>
+    </footer>
+    
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
