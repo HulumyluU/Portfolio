@@ -33,7 +33,7 @@
         <a href="#home" class="active">Home</a>
         <a href="#about">About</a>
         <a href="#services">Services</a>
-        <a href="#portfolio">Portfolio</a>
+        <a href="#portfolio">Projects</a>
         <a href="#contact">Contact</a>
       </nav>
     </header>
@@ -54,7 +54,7 @@
           <a href="https://www.instagram.com/777_sovuk.maksum/"><i class="bx bxl-instagram-alt"></i></a>
           <a href="https://www.linkedin.com/in/maksym-sovyk-286762284/"><i class="bx bxl-linkedin"></i></a>
         </div>
-        <a href="images/resume22.pdf" download class="btn">Download Resume</a>
+        <a href="images/Resume9.0.docx" download class="btn">Download Resume</a>
 
       </div>
 
@@ -72,9 +72,11 @@
         <h2 class="heading">About <span>Me</span></h2>
         <h3>Front-End developer</h3>
         <p>
-            Student at Conestoga College. Program (It innovation and design). I started studying
-            web development in 2022, before that I studied gamedev (c++, c#, Unity). I like to learn a lot of new things and quickly
-            integrate into the team. I hope I can help your company to make projects faster and better.
+         I am a second-year college student currently enrolled in a co-op
+         program, seeking an internship front-end developer role to gain
+         practical industry experience. I am proficient in HTML5, CSS3, SCSS,
+         Tailwind CSS, Bootstrap, and JavaScript, with a strong focus on
+         React.js. Also familiar with backend development using Node.js.         
         </p>
         <p class="about__text about__hidden">
          After learning HTML, CSS, JavaScript, and React.js, I started building different projects to improve my skills. 
@@ -99,17 +101,20 @@
               JavaScript(Promises , OOP , Timers...),
               Advanced DOM , Events, Eventloop...,
               typescript, basic knowladge(Generics , Enums...),
-              React(Redux, context apis, Routers, controllers).
+              MVC (Model-View-Controller) architecture,
+              
             </p>
             <a href="front-end.html" target="_blank" class="btn">Read more</a>
           </div>
 
         <div class="services-box">
           <i class='bx bx-server'></i>
-          <h3>Back-End Development</h3>
+          <h3>Frameworks and libraries</h3>
           <p>
-            Solid Knowledge of Node Js and basic knowladge of Nest Js, a good understanding of how HTTP and HTTPS protocols work.
-            Service Worker API. General knowledge of C#. Understanding how DNS and URL address works. Uploading websites to hosting and more
+            React(Redux, context apis, React Routers, controllers),
+            Node.js("Express.js", "grammy" ,"random-js"),
+            javaScript(React, basics of jQuery),
+            CSS(Tailwind CSS, botstrap),
           </p>
           <a href="back-end.html" class="btn">Read more</a>
         </div>
@@ -128,7 +133,7 @@
     </section>
 
     <section class="portfolio" id="portfolio">
-      <h2 class="heading">Portfolio <span>Projects</span></h2>
+      <h2 class="heading">My <span>Projects</span></h2>
 
       <div class="portfolio-container">
 
@@ -172,7 +177,7 @@
           </p>
             <div class="portfolio-btns">
               <a href="https://github.com/HulumyluU/Stylestreem" target="_blank" id="github__link"><i class='bx bxl-github' id="github"></i></a>
-              <a href="https://astonishing-croquembouche-779807.netlify.app" target="_blank"><i class="bx bx-link-external"></i></a>
+              <a href="https://dreamy-tanuki-a74c27.netlify.app/" target="_blank"><i class="bx bx-link-external"></i></a>
             </div>
         </div>
       </div>
@@ -205,18 +210,20 @@
     <section class="contact" id="contact">
       <h2 class="heading">Contact <span>Me!</span></h2>
 
-      <form>
+      <form action="https://api.web3forms.com/submit" method="POST">
+         <input type="hidden" name="access_key" value="01db6249-cc48-4d59-bf47-1de3fa5cb5f4">
         <div class="input-box">
-          <input type="text" id="name" placeholder="Full Name" required>
-          <input type="email" id="email" placeholder="Email Address" required>
+          <input type="text" name="name" id="name" placeholder="Full Name" required>
+          <input type="email" name="email" id="email" placeholder="Email Address" required>
         </div>
         <div class="input-box">
-          <input type="number" id="number" placeholder="Mobile Number">
-          <input type="text" id="subject" placeholder="Email Subject" required>
+          <input type="number" name="number" id="number" placeholder="Mobile Number">
+          <input type="text" name="subject" id="subject" placeholder="Email Subject" required>
         </div>
-        <textarea name="" id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
         <button type="submit" class="btn" onclick="sendMail()">Send Message</button>
       </form>
+
       <div class="social-media contact__social-media">
         <a href="https://github.com/HulumyluU"><i class="bx bxl-github"></i></a>
         <a href="https://twitter.com/MaksymSovyk22"><i class="bx bxl-twitter"></i></a>
