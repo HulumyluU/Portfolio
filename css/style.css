@@ -626,3 +626,133 @@ span{
     border-radius: 20px;
     border: 3px solid var(--main-color);
 }
+
+/* Web Expertise Page Specific Styles */
+.web-expertise {
+   min-height: 100vh;
+   padding: 10rem 9% 2rem;
+   background: var(--bg-color);
+}
+
+.expertise-title {
+   font-size: 5rem;
+   text-align: center;
+   margin-bottom: 5rem;
+}
+
+.expertise-title span {
+   color: var(--main-color);
+}
+
+.expertise-container {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-start;
+   gap: 4rem;
+}
+
+.expertise-content {
+   flex: 1;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   gap: 3rem;
+}
+
+.expertise-image {
+   flex: 0 0 40%;
+   position: sticky;
+   top: 10rem;
+}
+
+.expertise-image img {
+   width: 100%;
+   border-radius: 1rem;
+   border: .5rem solid var(--main-color);
+   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+   transition: transform 0.3s ease;
+}
+
+.expertise-image img:hover {
+   transform: scale(1.02);
+}
+
+.skill-item {
+   background: var(--second-bg-color);
+   border-radius: 1rem;
+   padding: 2.5rem;
+   transition: transform 0.3s ease, box-shadow 0.3s ease;
+   border-left: 3px solid var(--main-color);
+}
+
+.skill-item:hover {
+   transform: translateY(-5px);
+   box-shadow: 0 0 1.5rem var(--main-color);
+}
+
+.skill-item i {
+   font-size: 4rem;
+   color: var(--main-color);
+   margin-bottom: 1.5rem;
+   display: block;
+}
+
+.skill-item h3 {
+   font-size: 2.2rem;
+   margin-bottom: 1.5rem;
+   color: var(--main-color);
+}
+
+.skill-item p {
+   font-size: 1.6rem;
+   line-height: 1.6;
+   margin-bottom: 1.5rem;
+}
+
+.skill-item ul {
+   padding-left: 2rem;
+}
+
+.skill-item ul li {
+   font-size: 1.5rem;
+   margin-bottom: 0.8rem;
+   list-style-type: disc;
+   color: var(--text-color);
+}
+
+.back-button {
+   text-align: center;
+   margin-top: 5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+   .expertise-content {
+       grid-template-columns: 1fr;
+   }
+}
+
+@media (max-width: 991px) {
+   .expertise-container {
+       flex-direction: column;
+   }
+   
+   .expertise-image {
+       position: relative;
+       top: 0;
+       max-width: 60rem;
+       margin: 0 auto;
+   }
+}
+
+@media (max-width: 450px) {
+   .expertise-title {
+       font-size: 3.5rem;
+   }
+   
+   .skill-item {
+       padding: 2rem;
+   }
+}
+
+
+

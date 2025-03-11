@@ -10,18 +10,23 @@
    <link rel="icon" href="images/ico3.ico">
 </head>
 <body>
-   
-   <div class="wrapper">
-      <div class="web__logo">
-         <a href="index.html" class="logo">Portfolio</a>
-      </div>
+   <header class="header">
+      <a href="index.html" class="logo">Portfolio</a>
       
-      <nav class="web web__title">
-         <h1>Frameworks & <span>Technologies</span></h1>
+      <nav class="navbar">
+         <a href="index.html">Home</a>
+         <a href="index.html#about">About</a>
+         <a href="index.html#services">Services</a>
+         <a href="index.html#portfolio">Portfolio</a>
+         <a href="index.html#contact">Contact</a>
       </nav>
+   </header>
+   
+   <section class="web-expertise">
+      <h1 class="expertise-title">Frameworks & <span>Technologies</span></h1>
       
-      <nav class="web__text">
-         <div class="information">
+      <div class="expertise-container">
+         <div class="expertise-content">
             <div class="skill-item">
                <i class='bx bxl-react'></i>
                <h3>React Ecosystem</h3>
@@ -113,25 +118,29 @@
                   <li>Performance monitoring and optimization</li>
                </ul>
             </div>
-            
-            <div class="back-button">
-               <a href="index.html" class="btn">Back to Portfolio</a>
-            </div>
          </div>
          
-         <div class="icon">
+         <div class="expertise-image">
             <img src="images/bg8.jpg" alt="Programming frameworks illustration">
          </div>
-      </nav>
+      </div>
       
-      <footer class="footer">
-         <div class="footer-text">
-            <p>Copyright &copy; 2024 by Maksym Sovyk | All Rights Reserved.</p>
-         </div>
-      </footer>
-   </div>
+      <div class="back-button">
+         <a href="index.html" class="btn">Back to Portfolio</a>
+      </div>
+   </section>
+   
+   <footer class="footer">
+      <div class="footer-text">
+         <p>Copyright &copy; 2024 by Maksym Sovyk | All Rights Reserved.</p>
+      </div>
+      
+      <div class="footer-icon-top">
+         <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+      </div>
+   </footer>
 
    <script src="https://unpkg.com/scrollreveal"></script>
-   <script src="js/front-end.js"></script>
+   <script src="js/script.js"></script>
 </body>
 </html>

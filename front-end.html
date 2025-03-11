@@ -10,24 +10,28 @@
    <link rel="icon" href="images/ico3.ico">
 </head>
 <body>
-   
-   <div class="wrapper">
-      <div class="web__logo">
-         <a href="index.html" class="logo">Portfolio</a>
-      </div>
+   <header class="header">
+      <a href="index.html" class="logo">Portfolio</a>
       
-      <nav class="web web__title">
-         <h1>Web Development <span>Expertise</span></h1>
+      <nav class="navbar">
+         <a href="index.html">Home</a>
+         <a href="index.html#about">About</a>
+         <a href="index.html#services">Services</a>
+         <a href="index.html#portfolio">Portfolio</a>
+         <a href="index.html#contact">Contact</a>
       </nav>
+   </header>
+   
+   <section class="web-expertise">
+      <h1 class="expertise-title">Web Development <span>Expertise</span></h1>
       
-      <nav class="web__text">
-         <div class="information">
+      <div class="expertise-container">
+         <div class="expertise-content">
             <div class="skill-item">
                <i class='bx bxl-html5'></i>
                <h3>HTML5</h3>
                <p>
                   Expert in semantic markup and accessibility standards, creating structured and SEO-friendly web pages.
-                  Proficient with:
                </p>
                <ul>
                   <li>BEM methodology for maintainable code</li>
@@ -110,23 +114,27 @@
                   <li>Code review and collaboration</li>
                </ul>
             </div>
-            
-            <div class="back-button">
-               <a href="index.html" class="btn">Back to Portfolio</a>
-            </div>
          </div>
          
-         <div class="icon">
+         <div class="expertise-image">
             <img src="images/bg6.jpg" alt="Web development illustration">
          </div>
-      </nav>
+      </div>
       
-      <footer class="footer">
-         <div class="footer-text">
-            <p>Copyright &copy; 2024 by Maksym Sovyk | All Rights Reserved.</p>
-         </div>
-      </footer>
-   </div>
+      <div class="back-button">
+         <a href="index.html" class="btn">Back to Portfolio</a>
+      </div>
+   </section>
+   
+   <footer class="footer">
+      <div class="footer-text">
+         <p>Copyright &copy; 2024 by Maksym Sovyk | All Rights Reserved.</p>
+      </div>
+      
+      <div class="footer-icon-top">
+         <a href="#"><i class='bx bx-up-arrow-alt'></i></a>
+      </div>
+   </footer>
 
    <script src="https://unpkg.com/scrollreveal"></script>
    <script src="js/front-end.js"></script>
