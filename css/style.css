@@ -34,6 +34,22 @@ section{
     padding: 10rem 9% 2rem;
 }
 
+/* LOGO */
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem; /* adjust text size */
+  font-weight: bold;
+  gap: 8px; /* space between logo and text */
+}
+
+.logo img {
+  height: 24px;  /* adjust this value */
+  width: auto;   /* keeps proportions */
+}
+
+
     /**front-end and back-end pages styles*/
     .web__title{margin: 5rem 0}
     .web h2 {
