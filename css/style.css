@@ -16,7 +16,6 @@
     --second-bg-color: #323946;
     --text-color: #fff;
     --main-color: rgb(90, 178, 255);
-    /*--main-color: #0ef;*/
 }
 
 html{
@@ -34,80 +33,214 @@ section{
     padding: 10rem 9% 2rem;
 }
 
-/* LOGO */
+/* ========================================
+   ACCESSIBILITY ENHANCEMENTS
+   ======================================== */
+
+/* Skip Navigation Link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--main-color);
+    color: var(--bg-color);
+    padding: 8px 16px;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    z-index: 200;
+    border-radius: 0 0 4px 0;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--text-color);
+    outline-offset: 2px;
+}
+
+/* Visually Hidden Class for Screen Readers */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus Indicators for Keyboard Navigation */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+.btn:focus {
+    outline: 3px solid var(--main-color);
+    outline-offset: 2px;
+}
+
+/* Enhanced focus for navigation links */
+.navbar a:focus {
+    background: rgba(90, 178, 255, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    outline: 2px solid var(--main-color);
+}
+
+/* Focus for portfolio items */
+.portfolio-box:focus-within {
+    outline: 3px solid var(--main-color);
+    outline-offset: 3px;
+    border-radius: 2rem;
+}
+
+.portfolio-layer a:focus {
+    outline: 3px solid var(--bg-color);
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Social media links focus */
+.social-media a:focus {
+    outline: 3px solid var(--main-color);
+    outline-offset: 3px;
+    transform: scale(1.1);
+}
+
+/* Form Error Messages */
+.error-message {
+    color: #ff6b6b;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    display: block;
+    font-weight: 500;
+}
+
+input[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border: 2px solid #ff6b6b !important;
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .home-img img {
+        animation: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    :root {
+        --main-color: #00d4ff;
+        --bg-color: #000000;
+        --second-bg-color: #1a1a1a;
+        --text-color: #ffffff;
+    }
+    
+    .btn {
+        border: 2px solid var(--text-color);
+    }
+    
+    .navbar a {
+        border: 1px solid transparent;
+    }
+    
+    .navbar a:hover,
+    .navbar a.active {
+        border-color: var(--main-color);
+    }
+}
+
+/* ========================================
+   LOGO
+   ======================================== */
 
 .logo {
   display: flex;
   align-items: center;
-  font-size: 1.5rem; /* adjust text size */
+  font-size: 1.5rem;
   font-weight: bold;
-  gap: 8px; /* space between logo and text */
+  gap: 8px;
 }
 
 .logo img {
-  height: 24px;  /* adjust this value */
-  width: auto;   /* keeps proportions */
+  height: 24px;
+  width: auto;
 }
 
+/* ========================================
+   FRONT-END AND BACK-END PAGES STYLES
+   ======================================== */
 
-    /**front-end and back-end pages styles*/
-    .web__title{margin: 5rem 0}
-    .web h2 {
-        font-size: 5rem;
+.web__title{margin: 5rem 0}
+.web h2 {
+    font-size: 5rem;
+    text-align: center;
+}
+.web span {
+    color: var(--main-color);
+}
+.information{
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.web__text{
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+.item{
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80rem;
+    margin: 3rem;
+    justify-content: center;
+}
+.item p{
+    max-width: 60rem;
+}
+.web__text .bx{
+    font-size: 5rem;
+    color: var(--main-color);
+    width: 5rem;
+    height: 5rem;
+}
+.icon img{
+    margin-top: 5rem;
+    width: 60rem;
+    border-radius: 50%;
+    border: 10px solid var(--main-color);
+}
+.web__logo{
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+@media (max-width: 1310px){
+    .web__logo {
+        margin-left: 0;
         text-align: center;
     }
-    .web span {
-        color: var(--main-color);
+    .web h2{
+        font-size: 4rem;
     }
-    .information{
-        text-align: center;
-        margin-bottom: 3rem;
-    }
-    .web__text{
-        font-size: 1.5rem;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: 3rem;
-    }
-    .item{
-        display: flex;
-        flex-wrap: wrap;
-        max-width: 80rem;
-        margin: 3rem;
-        justify-content: center;
-    }
-    .item p{
-        max-width: 60rem;
-    }
-    .web__text .bx{
-        font-size: 5rem;
-        color: var(--main-color);
-        width: 5rem;
-        height: 5rem;
-    }
-    .icon img{
-        margin-top: 5rem;
-        width: 60rem;
-        border-radius: 50%;
-        border: 10px solid var(--main-color);
-    }
-    .web__logo{
-        margin-top: 2rem;
-        margin-left: 2rem;
-    }
-    @media (max-width: 1310px){
-        .web__logo {
-            margin-left: 0;
-            text-align: center;
-        }
-        .web h2{
-            font-size: 4rem;
-        }
-    }
-    /** ------------------------ */
+}
 
-
+/* ========================================
+   HEADER
+   ======================================== */
 
 .header{
     position: fixed;
@@ -132,25 +265,40 @@ section{
     font-weight: 600;
 }
 
-
 .navbar a {
     font-size: 1.7rem;
     color: var(--text-color);
     margin-left: 4rem;
     transition: .3s;
+    font-weight: 500;
 }
 
-.navbar a:hover ,
+.navbar a:hover,
 .navbar a.active {
     color: var(--main-color);
-
 }
 
-#menu-icon {
+/* Menu Toggle Button */
+#menu-icon,
+.menu-toggle {
     font-size: 3.6rem;
     color: var(--text-color);
     display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
 }
+
+#menu-icon:focus,
+.menu-toggle:focus {
+    outline: 2px solid var(--main-color);
+    border-radius: 0.5rem;
+}
+
+/* ========================================
+   HOME SECTION
+   ======================================== */
 
 .home{
     display: flex;
@@ -192,7 +340,6 @@ section{
 
 span{
     color: var(--main-color);
-
 }
 
 .social-media a {
@@ -207,18 +354,23 @@ span{
     font-size: 2rem;
     color: var(--main-color);
     margin: 3rem 1.5rem 3rem 0;
+    transition: all 0.3s ease;
 }
-
 
 .social-media a:hover{
     background: var(--main-color);
     color: var(--second-bg-color);
     box-shadow: 0 0 1rem var(--main-color);
+    transform: translateY(-3px);
 }
 
 .home-content h3:nth-of-type(2) {
     margin-bottom: 2rem;
 }
+
+/* ========================================
+   BUTTONS
+   ======================================== */
 
 .btn {
     display: inline-block;
@@ -230,12 +382,18 @@ span{
     color: var(--second-bg-color);
     letter-spacing: .1rem;
     font-weight: 600;
-
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .btn:hover{
     box-shadow: none;
+    transform: scale(0.98);
 }
+
+/* ========================================
+   ABOUT SECTION
+   ======================================== */
 
 .about {
     display: flex;
@@ -243,7 +401,6 @@ span{
     align-items: center;
     gap: 2rem;
     background: var(--second-bg-color);
-
 }
 
 .about-img img{
@@ -253,9 +410,7 @@ span{
 .heading {
     text-align: center;
     font-size: 4.5rem;
-
 }
-
 
 .about-content h2{
     text-align: left;
@@ -268,16 +423,19 @@ span{
 
 .about-content p {
     font-size: 1.6rem;
-    margin: 2rem 0 ;
+    margin: 2rem 0;
 }
+
 .about__hidden{
     display: none;
 }
 
+/* ========================================
+   SERVICES SECTION
+   ======================================== */
 
 .services h2{
     margin-bottom: 5rem;
-
 }
 
 .services-container{
@@ -288,8 +446,7 @@ span{
     gap: 2rem;
 }
 
-
-.services-container , .services-box {
+.services-container, .services-box {
     flex: 1 1 30rem;
     background: var(--second-bg-color);
     padding: 3rem 2rem 4rem;
@@ -311,7 +468,6 @@ span{
 
 .services-box h3{
     font-size: 2.6rem;
-
 }
 
 .services-box p{
@@ -319,18 +475,23 @@ span{
     margin: 4rem;
 }
 
+/* ========================================
+   PORTFOLIO SECTION
+   ======================================== */
+
 .portfolio {
     background: var(--second-bg-color);
 }
+
 .portfolio h2{
     margin-bottom: 4rem;
 }
+
 .portfolio-container {
     display: grid;
-    grid-template-columns: repeat(3 , 1fr);
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     gap: 4rem;
-    
 }
 
 .portfolio-container .portfolio-box {
@@ -341,6 +502,7 @@ span{
     display: flex;
     border-radius: 2rem;
 }
+
 .portfolio-box:hover{
     border: 1px solid var(--main-color);
 }
@@ -360,7 +522,7 @@ span{
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(0 , 0, 0, .1), var(--main-color));
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -394,6 +556,7 @@ span{
     border-radius: 50%;
     transition: 500ms ease;
 }
+
 .portfolio-layer a:hover{
     background: rgb(184, 180, 180);
 }
@@ -402,33 +565,43 @@ span{
     font-size: 2.5rem;
     color: var(--second-bg-color);
 }
+
 #github{
     font-size: 3.2rem;
 }
+
 #github__link{
     margin-right: 2rem;
 }
+
 .portfolio-btns{
     display: flex;
 }
+
 .portfolio-more-projects {
     padding-top: 6rem;
 }
+
 .portfolio-more-projects h2{
     text-align: center;
     font-size: 2rem;
 }
+
 .portfolio-more-projects a {
     color: var(--main-color);
     text-decoration: underline;
 }
+
 .portfolio-more-projects a:hover{
     cursor: pointer;
 }
 
+/* ========================================
+   CONTACT SECTION
+   ======================================== */
+
 .contact h2 {
     margin-bottom: 3rem;
-
 }
 
 .contact form {
@@ -436,7 +609,6 @@ span{
     margin: 1rem auto;
     text-align: center;
     margin-bottom: 3rem;
-    
 }
 
 .contact form .input-box {
@@ -453,6 +625,13 @@ span{
     border-radius: .8rem;
     margin: .7rem 0;
     color: var(--text-color);
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.contact form .input-box input:focus,
+.contact form textarea:focus {
+    border-color: var(--main-color);
 }
 
 .contact form .input-box input {
@@ -461,17 +640,21 @@ span{
 
 .contact form textarea {
     resize: none;
-
 }
 
 .contact form .btn {
     margin-top: 2rem;
     cursor: pointer;
 }
+
 .contact__social-media{
     display: flex;
     justify-content: center;
 }
+
+/* ========================================
+   FOOTER
+   ======================================== */
 
 .footer {
     display: flex;
@@ -480,11 +663,11 @@ span{
     flex-wrap: wrap;
     padding: 2rem 9%;
     background: var(--second-bg-color);
-
 }
 
 .footer-text p {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    color: #e0e0e0;
 }
 
 .footer-icon-top a{
@@ -499,6 +682,7 @@ span{
 
 .footer-icon-top a:hover{
     box-shadow: 0 0 1rem var(--main-color);
+    transform: translateY(-3px);
 }
 
 .footer-icon-top a i {
@@ -506,18 +690,20 @@ span{
     color: var(--second-bg-color);
 }
 
-/**brakepoits**/
+/* ========================================
+   RESPONSIVE BREAKPOINTS
+   ======================================== */
 
 @media (max-width: 1200px) {
     html{
         font-size: 55%;
     }
-.portfolio h2 {
-    margin-bottom: 3rem;
-}
-.portfolio-container {
-    grid-template-columns: repeat(2, 1fr);
-}
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media (max-width: 991px) {
@@ -539,11 +725,11 @@ span{
     .footer {
         padding: 2rem 3%;
     }
-
 }
 
 @media (max-width: 768px) {
-    #menu-icon{
+    #menu-icon,
+    .menu-toggle {
         display: block;
     }
     .navbar{
@@ -580,16 +766,13 @@ span{
     }
     .about{
         flex-direction: column-reverse;
-
     }
     .about img{
         width: 70vw;
         margin-top: 4rem;
-
     }
     .services h2{
         margin-bottom: 3rem;
-
     }
 }
 
@@ -608,19 +791,16 @@ span{
     }
     .contact form .input-box input {
         width: 100%;
-
     }
 }
 
 @media (max-width: 365px) {
     .home-img img{
         width: 90vw;
-
     }
     .about-img img{
         width: 90vw;
     }
-
     .footer {
         flex-direction: column-reverse;
     }
@@ -630,20 +810,28 @@ span{
     }
 }
 
-/*scroll bar*/
+/* ========================================
+   SCROLLBAR
+   ======================================== */
+
 ::-webkit-scrollbar {
     width: 1.3rem;
 }
+
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
     background-color: transparent;
     border-radius: 20px;
     border: 3px solid var(--main-color);
 }
 
-/* Web Expertise Page Specific Styles */
+/* ========================================
+   WEB EXPERTISE PAGE SPECIFIC STYLES
+   ======================================== */
+
 .web-expertise {
    min-height: 100vh;
    padding: 10rem 9% 2rem;
@@ -740,7 +928,7 @@ span{
    margin-top: 5rem;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for expertise page */
 @media (max-width: 1200px) {
    .expertise-content {
        grid-template-columns: 1fr;
@@ -769,6 +957,3 @@ span{
        padding: 2rem;
    }
 }
-
-
-
