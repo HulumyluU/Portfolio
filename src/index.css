@@ -152,12 +152,7 @@ textarea[aria-invalid="true"] {
     }
     
     .navbar a {
-        border: 1px solid transparent;
-    }
-    
-    .navbar a:hover,
-    .navbar a.active {
-        border-color: var(--main-color);
+        margin-left: 4rem;
     }
 }
 
