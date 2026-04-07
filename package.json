@@ -2,6 +2,7 @@
   "name": "portfolio-react",
   "private": true,
   "version": "1.0.0",
+  "homepage": "https://hulumyluu.github.io/Portfolio/",
   "type": "module",
   "scripts": {
     "dev": "vite",
