@@ -16,7 +16,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      image: '/Portfolio/images/images/Verity_img1.png',
+      image: '/Portfolio/images/Verity_img1.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
       description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
