@@ -36,7 +36,7 @@ const AboutSection = () => {
   return (
     <section className="about" id="about" aria-labelledby="about-heading">
       <div className="about-img" ref={aboutImgRef}>
-        <img src="/images/lineFirst.png" alt="Professional photo of Maksym Sovyk" />
+        <img src="/Portfolio/images/lineFirst.png" alt="Professional photo of Maksym Sovyk" />
       </div>
 
       <div className="about-content" ref={aboutContentRef}>
