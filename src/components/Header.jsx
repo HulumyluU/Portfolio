@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <header className="header" role="banner">
       <Link to="/" className="logo" aria-label="Portfolio home">
-        <img src="/images/logo_main1.png" alt="Maksym Sovyk logo" />
+        <img src="/Portfolio/images/logo_main1.png" alt="Maksym Sovyk logo" />
         Portfolio
       </Link>
 

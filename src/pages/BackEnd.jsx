@@ -119,7 +119,7 @@ const BackEnd = () => {
           </div>
           
           <div className="expertise-image">
-            <img src="/images/bg8.jpg" alt="Programming frameworks illustration" />
+            <img src="/Portfolio/images/bg8.jpg" alt="Programming frameworks illustration" />
           </div>
         </div>
         

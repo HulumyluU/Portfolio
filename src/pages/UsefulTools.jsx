@@ -117,7 +117,7 @@ const UsefulTools = () => {
           </div>
           
           <div className="expertise-image">
-            <img src="/images/useful-tools.jpg" alt="Development tools illustration" />
+            <img src="/Portfolio/images/useful-tools.jpg" alt="Development tools illustration" />
           </div>
         </div>
         

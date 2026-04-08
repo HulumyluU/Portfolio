@@ -7,7 +7,7 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      image: '/images/MovieMate1.png',
+      image: '/Portfolio/images/MovieMate1.png',
       alt: 'MovieMate application screenshot showing movie discovery interface',
       category: 'Front-End',
       description: 'This web application for movie discovery Tools: React.js, Vite, React Router, API(TMDB), Netlify, React Context API',
@@ -16,7 +16,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      image: '/images/stelestreem.png',
+      image: '/Portfolio/images/stelestreem.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
       description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
@@ -25,7 +25,7 @@ const PortfolioSection = () => {
     },
     {
       id: 3,
-      image: '/images/skyscope.png',
+      image: '/Portfolio/images/skyscope.png',
       alt: 'SkyScope weather application screenshot showing weather data',
       category: 'Front-End',
       description: 'A weather app built with React.js, Vite, Tailwind CSS, and shadcn/ui. It uses Router, Query, OpenWeather API, and Recharts for weather data and graphs.',

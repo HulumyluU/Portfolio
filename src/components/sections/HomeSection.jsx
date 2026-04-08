@@ -50,7 +50,7 @@ const HomeSection = () => {
             <i className="bx bxl-linkedin" aria-hidden="true"></i>
           </a>
         </div>
-        <a href="/images/Resume.pdf" download className="btn" aria-label="Download my resume as PDF">Download Resume</a>
+        <a href="/Portfolio/images/Resume.pdf" download className="btn" aria-label="Download my resume as PDF">Download Resume</a>
       </div>
     </section>
   )
