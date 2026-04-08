@@ -115,7 +115,7 @@ const FrontEnd = () => {
           </div>
           
           <div className="expertise-image">
-            <img src="/images/bg6.jpg" alt="Web development illustration" />
+            <img src="/Portfolio/images/bg6.jpg" alt="Web development illustration" />
           </div>
         </div>
         
