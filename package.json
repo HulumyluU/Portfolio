@@ -3,20 +3,20 @@
   "private": true,
   "version": "1.0.0",
   "homepage": "https://hulumyluu.github.io/Portfolio/",
-  "type": "module",
+  "type": "commonjs",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-
+    "dev": "react-scripts start",
+    "build": "react-scripts build",
+    "preview": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@emailjs/browser": "^4.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.20.0",
+    "react-scripts": "^5.0.1",
     "scrollreveal": "^4.0.9"
   },
   "devDependencies": {
