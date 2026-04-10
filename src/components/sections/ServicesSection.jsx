@@ -52,7 +52,7 @@ const ServicesSection = () => {
             Prompt engineering, RAG, function calling, fine-tuning
             Multi-step reasoning & tool usage
           </p>
-          <Link to="/back-end" className="btn" aria-label="Read more about AI automation skills">Read more</Link>
+          <Link to="/ai-automation" className="btn" aria-label="Read more about AI automation skills">Read more</Link>
         </article>
 
         <article className="services-box" role="listitem">

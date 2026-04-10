@@ -5,6 +5,7 @@ import Footer from './components/Footer'
 import Home from './pages/Home'
 import FrontEnd from './pages/FrontEnd'
 import BackEnd from './pages/BackEnd'
+import AIAutomation from './pages/AIAutomation'
 import UsefulTools from './pages/UsefulTools'
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/front-end" element={<FrontEnd />} />
             <Route path="/back-end" element={<BackEnd />} />
+            <Route path="/ai-automation" element={<AIAutomation />} />
             <Route path="/useful-tools" element={<UsefulTools />} />
           </Routes>
         </main>
