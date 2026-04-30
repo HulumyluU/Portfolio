@@ -16,7 +16,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-image: '/Portfolio/images/Verity_img.png',
+      image: '/images/Verity_img.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
       description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
@@ -38,8 +38,8 @@ image: '/Portfolio/images/Verity_img.png',
       alt: 'n8n workflow screenshot',
       category: 'AI Automation',
       description: 'n8n workflow for automated task processing and integration.',
-      github: '/downloads/Lead Consultation Automation.json',
-      live: '/downloads/video_n8n_s1.mp4'
+      github: '/Portfolio/downloads/Lead Consultation Automation.json',
+      live: '/Portfolio/downloads/video_n8n_s1.mp4'
     }
   ]
 
@@ -78,6 +78,7 @@ image: '/Portfolio/images/Verity_img.png',
                   rel="noopener noreferrer"
                   id="github__link"
                   aria-label={`View ${project.category} source code on GitHub`}
+                  download={project.id === 4 ? "Lead Consultation Automation.json" : undefined}
                 >
                   <i className='bx bxl-github' id="github" aria-hidden="true"></i>
                 </a>
@@ -86,6 +87,7 @@ image: '/Portfolio/images/Verity_img.png',
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${project.category} live website`}
+                  download={project.id === 4 ? "video_n8n_s1.mp4" : undefined}
                 >
                   <i className="bx bx-link-external" aria-hidden="true"></i>
                 </a>
