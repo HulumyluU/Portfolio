@@ -1,0 +1,577 @@
+{
+  "name": "AI Automated Resume System",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "64775657-316d-4481-bd17-07af98f9d8b1",
+      "name": "When clicking Execute workflow",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        240,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "get",
+        "documentURL": "<__PLACEHOLDER_VALUE__Your Google Docs resume URL__>"
+      },
+      "id": "c448ce83-3e6e-466c-84b6-066034a371e4",
+      "name": "Get Master Resume",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        464,
+        400
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "ctVLELkNikQiUHNQ",
+          "name": "Google Docs OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "sad",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"maxResults\": 100 } }}",
+        "options": {}
+      },
+      "id": "d0385bcf-6ae9-41c9-9ab0-5dfc8081f1b5",
+      "name": "Scrape Jobs (Apify)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        688,
+        400
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "maxItems": 20
+      },
+      "id": "30d8b3f7-e7fe-4262-b550-71d7fdec72af",
+      "name": "Limit to Batch",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        912,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Analyze this job listing and determine if it matches the candidate profile from the resume. Job: {{ $json.jobTitle }} at {{ $json.company }}. Description: {{ $json.description }}. Resume: {{ $(\"Get Master Resume\").item.json.content }}. Return \"match\" if relevant, \"no_match\" if not.",
+        "options": {
+          "systemMessage": "You are a job matching assistant. Analyze job listings against a resume and determine relevance. Return only \"match\" or \"no_match\"."
+        }
+      },
+      "id": "0c8369df-fcca-433f-8777-b18f38a77b22",
+      "name": "Filter Job Matches",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        1136,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "id": "daac1333-1051-4956-93bf-b2f853a5ef7f",
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        1208,
+        624
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "T6FjlSbEsUsFkArw",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.output }}",
+              "rightValue": "match",
+              "operator": {
+                "type": "string",
+                "operation": "contains"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "858b8865-5fe1-49d8-9946-6c79f00dfb7d",
+      "name": "Filter True Matches",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        1488,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.website }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isNotEmpty"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "26d97d5f-b407-49ef-8d3c-170fb409aa0f",
+      "name": "Filter Has Website",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        1712,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "id": "2c28bc08-d143-4d96-ad35-440503387578",
+      "name": "Limit to Top 3",
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        1936,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Rewrite this resume to match the job description. Tailor the experience and skills to highlight relevant keywords. Job: {{ $json.jobTitle }} at {{ $json.company }}. Description: {{ $json.description }}. Original Resume: {{ $(\"Get Master Resume\").item.json.content }}. Return the tailored resume in Markdown format.",
+        "options": {
+          "systemMessage": "You are a professional resume writer. Tailor resumes to match job descriptions by emphasizing relevant skills and experience. Always return in Markdown format."
+        }
+      },
+      "id": "1c7da6d1-f3e2-4fd7-b0af-895b5612dce3",
+      "name": "Rewrite Resume for Job",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        2160,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "markdownToHtml",
+        "markdown": "={{ $json.output }}",
+        "destinationKey": "htmlResume",
+        "options": {
+          "completeHTMLDocument": false
+        }
+      },
+      "id": "cd8e0d56-ed95-4251-94f5-37f55211d19b",
+      "name": "Markdown to HTML",
+      "type": "n8n-nodes-base.markdown",
+      "typeVersion": 1,
+      "position": [
+        2512,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "folderId": "19uXpWwyBFkaTm76PSqRoOOnb_PK3Akt1",
+        "title": "=Resume - {{ $json.jobTitle }} - {{ $json.company }}"
+      },
+      "id": "c51534dd-98ef-469e-a549-b46fd38cb9cb",
+      "name": "Create New Resume Doc",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2736,
+        400
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "ctVLELkNikQiUHNQ",
+          "name": "Google Docs OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentURL": "={{ $json.id }}",
+        "actionsUi": {
+          "actionFields": [
+            {
+              "action": "insert",
+              "text": "={{ $json.htmlResume }}"
+            }
+          ]
+        }
+      },
+      "id": "98e97bab-ff25-4c80-b1cf-fdd154e49174",
+      "name": "Add HTML to Resume",
+      "type": "n8n-nodes-base.googleDocs",
+      "typeVersion": 2,
+      "position": [
+        2960,
+        400
+      ],
+      "credentials": {
+        "googleDocsOAuth2Api": {
+          "id": "ctVLELkNikQiUHNQ",
+          "name": "Google Docs OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "url": "=https://api.anymailfinder.com/v5.0/search/person.json?domain={{ $json.website.replace(\"https://\", \"\").replace(\"http://\", \"\").split(\"/\")[0] }}&first_name=hiring&last_name=manager",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "options": {
+          "batching": {
+            "batch": {}
+          }
+        }
+      },
+      "id": "a88b886f-5e9b-4bcd-9b39-1c5c6fdf2c7a",
+      "name": "Get Email (Anymailfinder)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [
+        3184,
+        400
+      ],
+      "alwaysOutputData": true
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 1
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.email }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "isNotEmpty"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "022d57c1-72a4-4f0a-93c0-5c4274f60f07",
+      "name": "Email Exists?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        3408,
+        400
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "draft",
+        "subject": "=Application for {{ $json.jobTitle }} at {{ $json.company }}",
+        "message": "=Dear Hiring Manager,\n\nI am writing to express my interest in the {{ $json.jobTitle }} position at {{ $json.company }}.\n\nPlease find my tailored resume attached: https://docs.google.com/document/d/{{ $json.documentId }}\n\nBest regards",
+        "options": {
+          "sendTo": "={{ $json.email }}"
+        }
+      },
+      "id": "e6ceb052-1101-479c-a4e1-d8191aed6db8",
+      "name": "Create Gmail Draft",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        3632,
+        304
+      ],
+      "webhookId": "30e9bd80-7a6c-4cb0-91ad-50eca378f2f9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1erESskMtq84yl13",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "1",
+              "name": "status",
+              "value": "No email found",
+              "type": "string"
+            },
+            {
+              "id": "2",
+              "name": "company",
+              "value": "={{ $json.company }}",
+              "type": "string"
+            },
+            {
+              "id": "3",
+              "name": "jobTitle",
+              "value": "={{ $json.jobTitle }}",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "fbb11a2a-9d12-44de-917a-d185e4a5d7dc",
+      "name": "No Email Found",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        3632,
+        496
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking Execute workflow": {
+      "main": [
+        [
+          {
+            "node": "Get Master Resume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Master Resume": {
+      "main": [
+        [
+          {
+            "node": "Scrape Jobs (Apify)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Scrape Jobs (Apify)": {
+      "main": [
+        [
+          {
+            "node": "Limit to Batch",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to Batch": {
+      "main": [
+        [
+          {
+            "node": "Filter Job Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Job Matches": {
+      "main": [
+        [
+          {
+            "node": "Filter True Matches",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Filter Job Matches",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Rewrite Resume for Job",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter True Matches": {
+      "main": [
+        [
+          {
+            "node": "Filter Has Website",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Has Website": {
+      "main": [
+        [
+          {
+            "node": "Limit to Top 3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit to Top 3": {
+      "main": [
+        [
+          {
+            "node": "Rewrite Resume for Job",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Rewrite Resume for Job": {
+      "main": [
+        [
+          {
+            "node": "Markdown to HTML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Markdown to HTML": {
+      "main": [
+        [
+          {
+            "node": "Create New Resume Doc",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Create New Resume Doc": {
+      "main": [
+        [
+          {
+            "node": "Add HTML to Resume",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Add HTML to Resume": {
+      "main": [
+        [
+          {
+            "node": "Get Email (Anymailfinder)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Email (Anymailfinder)": {
+      "main": [
+        [
+          {
+            "node": "Email Exists?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email Exists?": {
+      "main": [
+        [
+          {
+            "node": "Create Gmail Draft",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Email Found",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6563df39-d3c1-4c50-8e96-829f7efc7435",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7a126e706022f48b10827d3dcbdfea5d7f837bdacc7b981e163e719c345a8ebb"
+  },
+  "id": "dCUuXmrTN7Imb4Y5",
+  "tags": []
+}

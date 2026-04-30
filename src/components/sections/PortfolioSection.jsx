@@ -47,7 +47,7 @@ const PortfolioSection = () => {
       alt: 'n8n workflow screenshot',
       category: 'AI Automation',
       description: 'A fully automated job application system that replaces hours of manual work with one click. It scrapes job boards, tailors your resume to each listing using AI, locates hiring manager contacts, and generates ready-to-send application emails — all without human input.',
-      github: '/Portfolio/images/AI Automated Resume System.json',
+      github: '/Portfolio/downloads/AI Automated Resume System.json',
       live: '/'
     }
   ]
