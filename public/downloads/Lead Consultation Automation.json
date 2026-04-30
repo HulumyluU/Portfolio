@@ -1,0 +1,279 @@
+{
+  "name": "Lead Consultation Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=You are a helpful business consultant. A potential client has requested a consultation with the following details:\n\nName: {{ $json.name }}\nEmail: {{ $json.email }}\nBusiness Type: {{ $json.businessType }}\nMain Problem: {{ $json.mainProblem }}\n\nWrite a personalized, professional email response that:\n1. Thanks them for reaching out\n2. Shows you understand their specific problem\n3. Briefly explains how you can help with their business type\n4. Suggests next steps (like scheduling a call)\n5. Keeps it concise and friendly\n\nReturn ONLY the email body text, no subject line.",
+        "options": {
+          "systemMessage": "You are a professional business consultant who writes personalized, helpful email responses to consultation requests."
+        }
+      },
+      "id": "9a6783bb-c490-4189-84ed-9695ff5d06d1",
+      "name": "Generate Personalized Email",
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        464,
+        304
+      ]
+    },
+    {
+      "parameters": {
+        "model": {
+          "__rl": true,
+          "mode": "list",
+          "value": "gpt-5-mini"
+        },
+        "builtInTools": {},
+        "options": {}
+      },
+      "id": "94152841-2414-424d-bf93-b77b5a21bf9d",
+      "name": "OpenAI Model",
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+      "typeVersion": 1.3,
+      "position": [
+        536,
+        528
+      ],
+      "credentials": {
+        "openAiApi": {
+          "id": "T6FjlSbEsUsFkArw",
+          "name": "n8n free OpenAI API credits"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $(\"Request Consultation Form\").item.json.email }}",
+        "subject": "=Re: Your Consultation Request - {{ $(\"Request Consultation Form\").item.json.businessType }}",
+        "emailType": "text",
+        "message": "={{ $json.output }}",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "id": "d4a5407c-d0ef-4dfc-911a-5cef727ff9d1",
+      "name": "Send Email to Lead",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        816,
+        304
+      ],
+      "webhookId": "91d3e4f1-e4f1-42de-8cb6-df795d8104d9",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "1erESskMtq84yl13",
+          "name": "Gmail OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "append",
+        "documentId": {
+          "__rl": true,
+          "value": "1fVrRifE9YVCuAILdBHJpHpqoKH-WiyC7HmXLn3ZpdH4",
+          "mode": "list",
+          "cachedResultName": "n8n test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fVrRifE9YVCuAILdBHJpHpqoKH-WiyC7HmXLn3ZpdH4/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1fVrRifE9YVCuAILdBHJpHpqoKH-WiyC7HmXLn3ZpdH4/edit#gid=0"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "Timestamp": "={{new Date().toISOString()}}",
+            "name": "={{$('Request Consultation Form').item.json.name}}",
+            "email": "={{$('Request Consultation Form').item.json.email}}",
+            "business ": "={{ $('Request Consultation Form').item.json.businessType }}",
+            "problem": "={{ $('Request Consultation Form').item.json.mainProblem }}"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "Timestamp",
+              "displayName": "Timestamp",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "name",
+              "displayName": "name",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "email",
+              "displayName": "email",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "business ",
+              "displayName": "business ",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "problem",
+              "displayName": "problem",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "id": "f7785304-38f2-4f0d-8b87-1dd842f750fa",
+      "name": "Log to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        1040,
+        304
+      ],
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "ZviTX0u2WO6YsX5L",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "formTitle": "Request a Consultation",
+        "formDescription": "Please fill out the form below and we will get back to you shortly.",
+        "formFields": {
+          "values": [
+            {
+              "fieldLabel": "Your Name",
+              "fieldName": "name",
+              "placeholder": "John Doe",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Email Address",
+              "fieldType": "email",
+              "fieldName": "email",
+              "placeholder": "john@example.com",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "Business Type",
+              "fieldName": "businessType",
+              "placeholder": "e.g., E-commerce, SaaS, Consulting",
+              "requiredField": true
+            },
+            {
+              "fieldLabel": "What is your main problem or challenge?",
+              "fieldType": "textarea",
+              "fieldName": "mainProblem",
+              "placeholder": "Describe your main challenge or what you need help with...",
+              "requiredField": true
+            }
+          ]
+        },
+        "options": {
+          "buttonLabel": "Submit Request",
+          "respondWithOptions": {
+            "values": {
+              "formSubmittedText": "Thank you! We have received your request and will get back to you shortly."
+            }
+          }
+        }
+      },
+      "id": "df65793b-f446-48bc-9b51-d470d50653b0",
+      "name": "Request Consultation Form",
+      "type": "n8n-nodes-base.formTrigger",
+      "typeVersion": 2.5,
+      "position": [
+        240,
+        304
+      ],
+      "webhookId": "32e57ce0-401f-46dc-a096-df887379b5c4"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Generate Personalized Email": {
+      "main": [
+        [
+          {
+            "node": "Send Email to Lead",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Personalized Email",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Email to Lead": {
+      "main": [
+        [
+          {
+            "node": "Log to Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Request Consultation Form": {
+      "main": [
+        [
+          {
+            "node": "Generate Personalized Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "6c863935-bfad-4326-a485-fdd0a4bbdc27",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "7a126e706022f48b10827d3dcbdfea5d7f837bdacc7b981e163e719c345a8ebb"
+  },
+  "id": "gjsS6nZ9trX4YcMY",
+  "tags": []
+}

@@ -31,6 +31,15 @@ image: '/Portfolio/images/Verity_img.png',
       description: 'A weather app built with React.js, Vite, Tailwind CSS, and shadcn/ui. It uses Router, Query, OpenWeather API, and Recharts for weather data and graphs.',
       github: 'https://github.com/HulumyluU/SkyScope',
       live: 'https://tangerine-sundae-48e05b.netlify.app/'
+    },
+     {
+      id: 4,
+      image: '/Portfolio/images/n8n_s1.png',
+      alt: 'n8n workflow screenshot',
+      category: 'AI Automation',
+      description: 'n8n workflow for automated task processing and integration.',
+      github: '/downloads/Lead Consultation Automation.json',
+      live: '/downloads/video_n8n_s1.mp4'
     }
   ]
 
