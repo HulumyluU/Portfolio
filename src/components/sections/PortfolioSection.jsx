@@ -16,7 +16,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      image: '/images/Verity_img.png',
+      image: '/Portfolio/images/Verity_img1.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
       description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
@@ -37,9 +37,18 @@ const PortfolioSection = () => {
       image: '/Portfolio/images/n8n_s1.png',
       alt: 'n8n workflow screenshot',
       category: 'AI Automation',
-      description: 'n8n workflow for automated task processing and integration.',
+      description: 'An automated lead response system that captures form submissions, generates personalized AI replies using OpenAI, sends them instantly via Gmail, and logs all lead data to Google Sheets — with zero manual effort.',
       github: '/Portfolio/downloads/Lead Consultation Automation.json',
       live: '/Portfolio/downloads/video_n8n_s1.mp4'
+    },
+    {
+      id: 5,
+      image: '/Portfolio/images/n8n_s2.png',
+      alt: 'n8n workflow screenshot',
+      category: 'AI Automation',
+      description: 'A fully automated job application system that replaces hours of manual work with one click. It scrapes job boards, tailors your resume to each listing using AI, locates hiring manager contacts, and generates ready-to-send application emails — all without human input.',
+      github: '/Portfolio/images/AI Automated Resume System.json',
+      live: '/'
     }
   ]
 
@@ -78,7 +87,7 @@ const PortfolioSection = () => {
                   rel="noopener noreferrer"
                   id="github__link"
                   aria-label={`View ${project.category} source code on GitHub`}
-                  download={project.id === 4 ? "Lead Consultation Automation.json" : undefined}
+                  download={project.id === 4 ? "Lead Consultation Automation.json" : project.id === 5 ? "AI Automated Resume System.json" : undefined}
                 >
                   <i className='bx bxl-github' id="github" aria-hidden="true"></i>
                 </a>
