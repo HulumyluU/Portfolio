@@ -7,7 +7,7 @@ const PortfolioSection = () => {
   const projects = [
     {
       id: 1,
-      image: '/Portfolio/images/MovieMate1.png',
+      image: '/images/MovieMate1.png',
       alt: 'MovieMate application screenshot showing movie discovery interface',
       category: 'Front-End',
       description: 'This web application for movie discovery Tools: React.js, Vite, React Router, API(TMDB), Netlify, React Context API',
@@ -16,7 +16,7 @@ const PortfolioSection = () => {
     },
     {
       id: 2,
-      image: '/Portfolio/images/Verity_img1.png',
+      image: '/images/Verity_img1.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
       description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
@@ -25,7 +25,7 @@ const PortfolioSection = () => {
     },
     {
       id: 3,
-      image: '/Portfolio/images/skyscope.png',
+      image: '/images/skyscope.png',
       alt: 'SkyScope weather application screenshot showing weather data',
       category: 'Front-End',
       description: 'A weather app built with React.js, Vite, Tailwind CSS, and shadcn/ui. It uses Router, Query, OpenWeather API, and Recharts for weather data and graphs.',
@@ -34,20 +34,20 @@ const PortfolioSection = () => {
     },
      {
       id: 4,
-      image: '/Portfolio/images/n8n_s1.png',
+      image: '/images/n8n_s1.png',
       alt: 'n8n workflow screenshot',
       category: 'AI Automation',
-      description: 'An automated lead response system that captures form submissions, generates personalized AI replies using OpenAI, sends them instantly via Gmail, and logs all lead data to Google Sheets — with zero manual effort.',
-      github: '/Portfolio/downloads/Lead Consultation Automation.json',
-      live: '/Portfolio/downloads/video_n8n_s1.mp4'
+      description: 'An automated lead response system that captures form submissions, generates personalized AI replies using OpenAI, sends them instantly via Gmail, and logs all lead data to Google Sheets -- with zero manual effort.',
+      github: '/downloads/Lead Consultation Automation.json',
+      live: 'https://drive.google.com/file/d/1zDH5J3qG9nSFppDTlfcxpokzc1vzRMku/view?usp=sharing'
     },
     {
       id: 5,
-      image: '/Portfolio/images/n8n_s2.png',
+      image: '/images/n8n_s2.png',
       alt: 'n8n workflow screenshot',
       category: 'AI Automation',
       description: 'A fully automated job application system that replaces hours of manual work with one click. It scrapes job boards, tailors your resume to each listing using AI, locates hiring manager contacts, and generates ready-to-send application emails — all without human input.',
-      github: '/Portfolio/downloads/AI Automated Resume System.json',
+      github: '/downloads/AI Automated Resume System.json',
       live: '/'
     }
   ]
@@ -96,7 +96,7 @@ const PortfolioSection = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`Visit ${project.category} live website`}
-                  download={project.id === 4 ? "video_n8n_s1.mp4" : undefined}
+                  download={undefined}
                 >
                   <i className="bx bx-link-external" aria-hidden="true"></i>
                 </a>

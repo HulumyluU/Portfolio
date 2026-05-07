@@ -150,7 +150,7 @@ const AIAutomation = () => {
           </div>
           
           <div className="expertise-image">
-            <img src="/Portfolio/images/bg8.jpg" alt="AI automation engineering illustration" />
+            <img src="/images/bg8.jpg" alt="AI automation engineering illustration" />
           </div>
         </div>
         
