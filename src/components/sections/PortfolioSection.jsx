@@ -10,7 +10,7 @@ const PortfolioSection = () => {
       image: '/images/MovieMate1.png',
       alt: 'MovieMate application screenshot showing movie discovery interface',
       category: 'Front-End',
-      description: 'This web application for movie discovery Tools: React.js, Vite, React Router, API(TMDB), Netlify, React Context API',
+      description: 'Engineered a high-performance SPA using Vite and React Router for seamless navigation. Implemented Redux for global state management and watchlist caching, utilizing asynchronous data fetching from a third-party REST API.',
       github: 'https://github.com/HulumyluU/MovieMate/tree/main/MovieMate',
       live: 'https://thriving-taffy-5ae9cf.netlify.app/'
     },
@@ -19,36 +19,18 @@ const PortfolioSection = () => {
       image: '/images/Verity_img1.png',
       alt: 'Verity browser extension',
       category: 'AI Automation & React.js',
-      description: 'Verity – Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
+      description: 'Verity, Domain Trust & Fact Checker is a browser extension that helps users detect scams and verify online information in real time. It analyzes website credibility, checks domains, and uses AI to evaluate content accuracy. With unit tests and CI/CD pipeline.',
       github: 'https://github.com/HulumyluU/Verity',
-      live: 'https://velvety-pudding-5c55ea.netlify.app/'
+      live: 'https://verityextension.netlify.app/'
     },
     {
       id: 3,
-      image: '/images/skyscope.png',
-      alt: 'SkyScope weather application screenshot showing weather data',
-      category: 'Front-End',
-      description: 'A weather app built with React.js, Vite, Tailwind CSS, and shadcn/ui. It uses Router, Query, OpenWeather API, and Recharts for weather data and graphs.',
-      github: 'https://github.com/HulumyluU/SkyScope',
-      live: 'https://tangerine-sundae-48e05b.netlify.app/'
-    },
-     {
-      id: 4,
-      image: '/images/n8n_s1.png',
-      alt: 'n8n workflow screenshot',
-      category: 'AI Automation',
-      description: 'An automated lead response system that captures form submissions, generates personalized AI replies using OpenAI, sends them instantly via Gmail, and logs all lead data to Google Sheets -- with zero manual effort.',
-      github: '/downloads/Lead Consultation Automation.json',
-      live: 'https://drive.google.com/file/d/1zDH5J3qG9nSFppDTlfcxpokzc1vzRMku/view?usp=sharing'
-    },
-    {
-      id: 5,
-      image: '/images/n8n_s2.png',
-      alt: 'n8n workflow screenshot',
-      category: 'AI Automation',
-      description: 'A fully automated job application system that replaces hours of manual work with one click. It scrapes job boards, tailors your resume to each listing using AI, locates hiring manager contacts, and generates ready-to-send application emails — all without human input.',
-      github: '/downloads/AI Automated Resume System.json',
-      live: '/'
+      image: '/images/screenshot_automationTechStore.png',
+      alt: 'E-commerce automation workflow screenshot',
+      category: 'AI Automation & Full-Stack',
+      description: 'An automated e-commerce store system that processes checkouts, generates AI-personalized customer emails, and logs inventory data automatically. Streamlines the entire post-purchase workflow with intelligent automation.',
+      github: '/downloads/E-commerce Checkout to AI-Personalized Email and Inventory Logger.json',
+      live: 'https://drive.google.com/file/d/1FRd67gxZYlQ26CgmCzV52L7AdW8tL0TK/view?usp=sharing'
     }
   ]
 
@@ -87,7 +69,7 @@ const PortfolioSection = () => {
                   rel="noopener noreferrer"
                   id="github__link"
                   aria-label={`View ${project.category} source code on GitHub`}
-                  download={project.id === 4 ? "Lead Consultation Automation.json" : project.id === 5 ? "AI Automated Resume System.json" : undefined}
+                  download={project.id === 3 ? "E-commerce Checkout to AI-Personalized Email and Inventory Logger.json" : undefined}
                 >
                   <i className='bx bxl-github' id="github" aria-hidden="true"></i>
                 </a>
